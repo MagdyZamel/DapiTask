@@ -5,4 +5,7 @@
 //  Created by MSZ on 08/07/2021.
 //
 
-import Foundation
+// MARK: - User Errors Messages
+"error.noInternet" = "Your mobile seems to be offline...";
+"error.faviconDownloader.failedDownload" = "Could not download favicon from the given url: %@";
+"error.faviconDownloader.urlNotValid" = "Could not download favicon from not valid url: %@";
