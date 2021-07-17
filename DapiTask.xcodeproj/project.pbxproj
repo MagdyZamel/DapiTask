@@ -11,6 +11,11 @@
 		2A470C37269DFF8600954E8C /* FaviconDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C36269DFF8600954E8C /* FaviconDownloader.swift */; };
 		2A470C3A269F1ABB00954E8C /* FaviconDownloaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C39269F1ABB00954E8C /* FaviconDownloaderProtocol.swift */; };
 		2A470C3C269F3AC500954E8C /* Error+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C3B269F3AC500954E8C /* Error+Extension.swift */; };
+		2A470C40269F6D8700954E8C /* FetchWebsitesInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C3F269F6D8700954E8C /* FetchWebsitesInfoUseCase.swift */; };
+		2A470C43269F890F00954E8C /* WebsiteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C42269F890F00954E8C /* WebsiteInfo.swift */; };
+		2A470C5826A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C5726A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift */; };
+		2A470C5A26A093F600954E8C /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C5926A093F600954E8C /* AsyncOperation.swift */; };
+		2A824D4226A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A824D4126A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift */; };
 		2A8D08AF26977BFA009EA9A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D08AE26977BFA009EA9A2 /* AppDelegate.swift */; };
 		2A8D08B326977BFA009EA9A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D08B226977BFA009EA9A2 /* ViewController.swift */; };
 		2A8D08B626977BFA009EA9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D08B426977BFA009EA9A2 /* Main.storyboard */; };
@@ -25,6 +30,11 @@
 		2A470C36269DFF8600954E8C /* FaviconDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconDownloader.swift; sourceTree = "<group>"; };
 		2A470C39269F1ABB00954E8C /* FaviconDownloaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaviconDownloaderProtocol.swift; sourceTree = "<group>"; };
 		2A470C3B269F3AC500954E8C /* Error+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extension.swift"; sourceTree = "<group>"; };
+		2A470C3F269F6D8700954E8C /* FetchWebsitesInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWebsitesInfoUseCase.swift; sourceTree = "<group>"; };
+		2A470C42269F890F00954E8C /* WebsiteInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteInfo.swift; sourceTree = "<group>"; };
+		2A470C5726A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWebsiteMetaDataOperation.swift; sourceTree = "<group>"; };
+		2A470C5926A093F600954E8C /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		2A824D4126A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWebsiteFaviconOperation.swift; sourceTree = "<group>"; };
 		2A8D08AB26977BFA009EA9A2 /* DapiTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DapiTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8D08AE26977BFA009EA9A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A8D08B226977BFA009EA9A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +66,33 @@
 				2A470C39269F1ABB00954E8C /* FaviconDownloaderProtocol.swift */,
 			);
 			path = "Favicon Downloader";
+			sourceTree = "<group>";
+		};
+		2A470C3D269F6D4B00954E8C /* Domain Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2A470C3E269F6D5E00954E8C /* UseCases */,
+				2A470C38269F1AAA00954E8C /* Favicon Downloader */,
+			);
+			path = "Domain Layer";
+			sourceTree = "<group>";
+		};
+		2A470C3E269F6D5E00954E8C /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2A470C3F269F6D8700954E8C /* FetchWebsitesInfoUseCase.swift */,
+				2A470C5726A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift */,
+				2A824D4126A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2A470C41269F88F800954E8C /* Data Layer */ = {
+			isa = PBXGroup;
+			children = (
+				2A470C42269F890F00954E8C /* WebsiteInfo.swift */,
+			);
+			path = "Data Layer";
 			sourceTree = "<group>";
 		};
 		2A8D08A226977BFA009EA9A2 = {
@@ -90,8 +127,9 @@
 		2A8D08C426977F71009EA9A2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2A8D08CB269780B5009EA9A2 /* Extensions */,
-				2A470C38269F1AAA00954E8C /* Favicon Downloader */,
+				2A470C41269F88F800954E8C /* Data Layer */,
+				2A470C3D269F6D4B00954E8C /* Domain Layer */,
+				2A8D08CB269780B5009EA9A2 /* Extensions+Utilties */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -115,13 +153,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2A8D08CB269780B5009EA9A2 /* Extensions */ = {
+		2A8D08CB269780B5009EA9A2 /* Extensions+Utilties */ = {
 			isa = PBXGroup;
 			children = (
 				2A8D08D0269780ED009EA9A2 /* String+Extension.swift */,
 				2A470C3B269F3AC500954E8C /* Error+Extension.swift */,
+				2A470C5926A093F600954E8C /* AsyncOperation.swift */,
 			);
-			path = Extensions;
+			path = "Extensions+Utilties";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,11 +266,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8D08B326977BFA009EA9A2 /* ViewController.swift in Sources */,
+				2A824D4226A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift in Sources */,
+				2A470C5A26A093F600954E8C /* AsyncOperation.swift in Sources */,
 				2A8D08CA26978051009EA9A2 /* Localizable.strings in Sources */,
 				2A470C37269DFF8600954E8C /* FaviconDownloader.swift in Sources */,
+				2A470C40269F6D8700954E8C /* FetchWebsitesInfoUseCase.swift in Sources */,
 				2A470C3C269F3AC500954E8C /* Error+Extension.swift in Sources */,
 				2A8D08D1269780ED009EA9A2 /* String+Extension.swift in Sources */,
+				2A470C43269F890F00954E8C /* WebsiteInfo.swift in Sources */,
 				2A8D08AF26977BFA009EA9A2 /* AppDelegate.swift in Sources */,
+				2A470C5826A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift in Sources */,
 				2A470C3A269F1ABB00954E8C /* FaviconDownloaderProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
