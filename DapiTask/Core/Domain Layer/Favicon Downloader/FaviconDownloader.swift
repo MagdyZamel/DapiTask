@@ -22,6 +22,7 @@ class FaviconDownloader: FaviconDownloaderProtocol {
             completion(.failure(NSError.FaviconDownloader.urlNotValid(urlString: urlString)))
             return
         }
+
         FaviconFinder(url: url).downloadFavicon { result in
             switch result {
             case .success(let favicon):
