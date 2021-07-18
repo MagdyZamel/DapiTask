@@ -2,6 +2,9 @@ line_length:
     warning: 450
     error: 500
 
+disabled_rules:
+- force_cast
+
 excluded:
 - Core/Data Layer/Internet/Reachability.swift
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)

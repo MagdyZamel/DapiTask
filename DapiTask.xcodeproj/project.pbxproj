@@ -16,8 +16,12 @@
 		2A470C5826A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C5726A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift */; };
 		2A470C5A26A093F600954E8C /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A470C5926A093F600954E8C /* AsyncOperation.swift */; };
 		2A824D4226A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A824D4126A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift */; };
+		2A824D4726A2ECB100D728C1 /* WebsitesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A824D4526A2ECB100D728C1 /* WebsitesListVC.swift */; };
+		2A824D4826A2ECB100D728C1 /* WebsitesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A824D4626A2ECB100D728C1 /* WebsitesListVC.xib */; };
+		2A824D4C26A2FF1A00D728C1 /* WebsiteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A824D4A26A2FF1A00D728C1 /* WebsiteCell.swift */; };
+		2A824D4D26A2FF1A00D728C1 /* WebsiteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A824D4B26A2FF1A00D728C1 /* WebsiteCell.xib */; };
+		2A824D5026A32F9D00D728C1 /* UI+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A824D4F26A32F9D00D728C1 /* UI+Extension.swift */; };
 		2A8D08AF26977BFA009EA9A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D08AE26977BFA009EA9A2 /* AppDelegate.swift */; };
-		2A8D08B326977BFA009EA9A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D08B226977BFA009EA9A2 /* ViewController.swift */; };
 		2A8D08B626977BFA009EA9A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D08B426977BFA009EA9A2 /* Main.storyboard */; };
 		2A8D08B826977BFD009EA9A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D08B726977BFD009EA9A2 /* Assets.xcassets */; };
 		2A8D08BB26977BFD009EA9A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A8D08B926977BFD009EA9A2 /* LaunchScreen.storyboard */; };
@@ -35,9 +39,13 @@
 		2A470C5726A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWebsiteMetaDataOperation.swift; sourceTree = "<group>"; };
 		2A470C5926A093F600954E8C /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		2A824D4126A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWebsiteFaviconOperation.swift; sourceTree = "<group>"; };
+		2A824D4526A2ECB100D728C1 /* WebsitesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsitesListVC.swift; sourceTree = "<group>"; };
+		2A824D4626A2ECB100D728C1 /* WebsitesListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebsitesListVC.xib; sourceTree = "<group>"; };
+		2A824D4A26A2FF1A00D728C1 /* WebsiteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteCell.swift; sourceTree = "<group>"; };
+		2A824D4B26A2FF1A00D728C1 /* WebsiteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebsiteCell.xib; sourceTree = "<group>"; };
+		2A824D4F26A32F9D00D728C1 /* UI+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UI+Extension.swift"; sourceTree = "<group>"; };
 		2A8D08AB26977BFA009EA9A2 /* DapiTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DapiTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A8D08AE26977BFA009EA9A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A8D08B226977BFA009EA9A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A8D08B526977BFA009EA9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A8D08B726977BFD009EA9A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A8D08BA26977BFD009EA9A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +103,25 @@
 			path = "Data Layer";
 			sourceTree = "<group>";
 		};
+		2A824D4926A2ECBB00D728C1 /* Websites List VC */ = {
+			isa = PBXGroup;
+			children = (
+				2A824D4526A2ECB100D728C1 /* WebsitesListVC.swift */,
+				2A824D4626A2ECB100D728C1 /* WebsitesListVC.xib */,
+				2A824D4E26A2FF2900D728C1 /* Reusables  */,
+			);
+			path = "Websites List VC";
+			sourceTree = "<group>";
+		};
+		2A824D4E26A2FF2900D728C1 /* Reusables  */ = {
+			isa = PBXGroup;
+			children = (
+				2A824D4A26A2FF1A00D728C1 /* WebsiteCell.swift */,
+				2A824D4B26A2FF1A00D728C1 /* WebsiteCell.xib */,
+			);
+			path = "Reusables ";
+			sourceTree = "<group>";
+		};
 		2A8D08A226977BFA009EA9A2 = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +164,9 @@
 		2A8D08C526977F7C009EA9A2 /* Shell */ = {
 			isa = PBXGroup;
 			children = (
-				2A8D08B426977BFA009EA9A2 /* Main.storyboard */,
 				2A8D08B926977BFD009EA9A2 /* LaunchScreen.storyboard */,
-				2A8D08B226977BFA009EA9A2 /* ViewController.swift */,
+				2A8D08B426977BFA009EA9A2 /* Main.storyboard */,
+				2A824D4926A2ECBB00D728C1 /* Websites List VC */,
 			);
 			path = Shell;
 			sourceTree = "<group>";
@@ -159,6 +186,7 @@
 				2A8D08D0269780ED009EA9A2 /* String+Extension.swift */,
 				2A470C3B269F3AC500954E8C /* Error+Extension.swift */,
 				2A470C5926A093F600954E8C /* AsyncOperation.swift */,
+				2A824D4F26A32F9D00D728C1 /* UI+Extension.swift */,
 			);
 			path = "Extensions+Utilties";
 			sourceTree = "<group>";
@@ -231,8 +259,10 @@
 			files = (
 				2A8D08C826977FB1009EA9A2 /* .swiftlint.yml in Resources */,
 				2A8D08BB26977BFD009EA9A2 /* LaunchScreen.storyboard in Resources */,
+				2A824D4826A2ECB100D728C1 /* WebsitesListVC.xib in Resources */,
 				2A8D08B826977BFD009EA9A2 /* Assets.xcassets in Resources */,
 				2A8D08B626977BFA009EA9A2 /* Main.storyboard in Resources */,
+				2A824D4D26A2FF1A00D728C1 /* WebsiteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,16 +295,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A8D08B326977BFA009EA9A2 /* ViewController.swift in Sources */,
 				2A824D4226A1F3C100D728C1 /* FetchWebsiteFaviconOperation.swift in Sources */,
 				2A470C5A26A093F600954E8C /* AsyncOperation.swift in Sources */,
 				2A8D08CA26978051009EA9A2 /* Localizable.strings in Sources */,
 				2A470C37269DFF8600954E8C /* FaviconDownloader.swift in Sources */,
 				2A470C40269F6D8700954E8C /* FetchWebsitesInfoUseCase.swift in Sources */,
 				2A470C3C269F3AC500954E8C /* Error+Extension.swift in Sources */,
+				2A824D4726A2ECB100D728C1 /* WebsitesListVC.swift in Sources */,
 				2A8D08D1269780ED009EA9A2 /* String+Extension.swift in Sources */,
 				2A470C43269F890F00954E8C /* WebsiteInfo.swift in Sources */,
+				2A824D5026A32F9D00D728C1 /* UI+Extension.swift in Sources */,
 				2A8D08AF26977BFA009EA9A2 /* AppDelegate.swift in Sources */,
+				2A824D4C26A2FF1A00D728C1 /* WebsiteCell.swift in Sources */,
 				2A470C5826A093CC00954E8C /* FetchWebsiteMetaDataOperation.swift in Sources */,
 				2A470C3A269F1ABB00954E8C /* FaviconDownloaderProtocol.swift in Sources */,
 			);

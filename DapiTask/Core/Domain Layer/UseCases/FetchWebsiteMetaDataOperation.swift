@@ -16,10 +16,8 @@ enum FetchWebsiteInfoOperationError: Error {
     case urlNotValid
     /// any underlying error with type `Error` protocol
     case underlying(error: Error)
-    /// if the sever didn't send the  Content-Length header or request failed
+    /// if the request failed
     case requestFailed(statusCode: Int)
-//    /// if the sever didn't send the  Content-Length header
-//    case noContentLengthFound(statusCode:Int)
 }
 
 /// FetchWebsiteInfoOperation is a AsyncOperation that used to Fetch website meta data and store it as a `result` of  type `WebsiteMetaData` when it's fulfilled with data  and `FetchWebsiteInfoOperationError` when it fulfilled with error.
@@ -28,7 +26,7 @@ class FetchWebsiteMetaDataOperation: AsyncOperation {
     /// - important: don't use it before make sure the operation finished it work.
     private(set) public var result: Result<WebsiteMetaData, FetchWebsiteInfoOperationError>?
 
-    private var websiteStringURL: String
+    private(set) var websiteStringURL: String
     private var dataTask: URLSessionTask?
     private var urlSession: URLSession
 
@@ -46,20 +44,19 @@ class FetchWebsiteMetaDataOperation: AsyncOperation {
             self.finish(with: .failure(.urlNotValid))
             return
         }
-        dataTask = urlSession.dataTask(with: websiteURL, completionHandler: {[weak self] _, response, error in
+        dataTask = urlSession.dataTask(with: websiteURL, completionHandler: {[weak self] data, response, error in
             guard let self = self, !self.isCancelled else {
                 self?.finish(with: .failure(.canceled))
                 return
             }
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == 200,
-                   let contentLength = response.allHeaderFields["Content-Length"] as? String,
-                   let contentLengthValue = Int(contentLength) {
+                if response.statusCode == 200, let data = data {
                     self.finish(with: .success(WebsiteMetaData(urlString: self.websiteStringURL,
-                                                               contentSize: contentLengthValue)))
+                                                               content: data)))
                 } else {
                     self.finish(with: .failure(.requestFailed(statusCode: response.statusCode)))
                 }
+
             } else {
                 let error = error  ?? FetchWebsiteInfoOperationError.canceled
                 self.finish(with: .failure(.underlying(error: error)))

@@ -43,3 +43,14 @@ extension Result {
         }
     }
 }
+
+extension NSObject {
+    /// value that represent a className as string value
+    static var className: String {
+        return String(describing: self)
+    }
+
+     var className: String {
+        return String(describing: self)
+    }
+}
