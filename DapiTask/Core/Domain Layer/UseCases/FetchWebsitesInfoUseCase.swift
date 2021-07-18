@@ -9,38 +9,42 @@
 import Foundation
 
 protocol FetchWebsitesInfoUseCaseProtocol: AnyObject {
-    var fetchedWebsiteInfoCallback: ((Result<WebsiteInfo, Error>) -> Void)? {get set}
-    func fetchWebsitesInfo()
+    var fetchedWebsiteInfoCallback: ((Result<WebsiteInfo, FetchWebsiteInfoOperationError>, _ url: String) -> Void)? {get set}
+    var startFetchingWebsiteInfoCallback: ((_ websiteStringURL: String) -> Void)? {get set}
+    var finishFetchingAllWebsitesCallback: (() -> Void)? {get set}
+    func fetchWebsitesInfo(websiteStringURLs: [String])
+
 }
 
 class FetchWebsitesInfoUseCase: FetchWebsitesInfoUseCaseProtocol {
 
     private var faviconDownloader: FaviconDownloaderProtocol
     private var urlSession: URLSession
-    private var websiteStringURLs: [String]
 
-    var fetchedWebsiteInfoCallback: ((Result<WebsiteInfo, Error>) -> Void)?
+    var fetchedWebsiteInfoCallback: ((Result<WebsiteInfo, FetchWebsiteInfoOperationError>, _ url: String) -> Void)?
+    var startFetchingWebsiteInfoCallback: ((_ websiteStringURL: String) -> Void)?
+    var finishFetchingAllWebsitesCallback: (() -> Void)?
 
     private var fetchWebsiteDetailsOperations = [BlockOperation]()
     private let websitesDetailsQueue = OperationQueue()
 
-    init(websiteStringURLs: [String],
-         faviconDownloader: FaviconDownloaderProtocol,
+    init(faviconDownloader: FaviconDownloaderProtocol,
          urlSession: URLSession) {
-        self.websiteStringURLs = websiteStringURLs
         self.faviconDownloader = faviconDownloader
         self.urlSession = urlSession
         websitesDetailsQueue.maxConcurrentOperationCount = 1
     }
 
-    func fetchWebsitesInfo() {
+    func fetchWebsitesInfo(websiteStringURLs: [String]) {
         fetchWebsiteDetailsOperations = websiteStringURLs.map({createWebsiteDetailsOperation(websiteStringURL: $0)})
         websitesDetailsQueue.addOperations(fetchWebsiteDetailsOperations, waitUntilFinished: false)
         DispatchQueue(label: "FetchWebsitesInfoUseCase.fetchWebsiteDetails").async { [weak self] in
-            self?.fetchWebsiteDetailsOperations.forEach { ii in
-                OperationQueue().addOperations(ii.dependencies,
+            for (index, operation) in (self?.fetchWebsiteDetailsOperations ?? []).enumerated() {
+                self?.startFetchingWebsiteInfoCallback?(websiteStringURLs[index])
+                OperationQueue().addOperations(operation.dependencies,
                                                waitUntilFinished: true)
             }
+            self?.finishFetchingAllWebsitesCallback?()
         }
     }
 
@@ -58,9 +62,9 @@ class FetchWebsitesInfoUseCase: FetchWebsitesInfoUseCaseProtocol {
                 let websiteInfo = WebsiteInfo(urlString: websiteStringURL,
                                               favicon: favicon,
                                               websiteMetaData: websiteMetaData)
-                self.fetchedWebsiteInfoCallback?(.success(websiteInfo))
+                self.fetchedWebsiteInfoCallback?(.success(websiteInfo), fetchWebsiteMetaDataOperation.websiteStringURL)
             case .failure( let error):
-                self.fetchedWebsiteInfoCallback?(.failure(error))
+                self.fetchedWebsiteInfoCallback?(.failure(error), fetchWebsiteMetaDataOperation.websiteStringURL)
             }
         }
         websiteDetailsOperation.addDependency(fetchWebsiteMetaDataOperation)

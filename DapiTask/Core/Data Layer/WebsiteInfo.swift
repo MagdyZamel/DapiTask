@@ -16,5 +16,12 @@ struct WebsiteInfo {
 
 struct WebsiteMetaData {
     var urlString: String
-    var contentSize: Int
+    var content: Data
+    var formatedContentSize: String {
+        let contentSize = content.count
+        let bcf = ByteCountFormatter()
+        bcf.allowedUnits = [.useAll]
+        bcf.countStyle = .binary
+        return bcf.string(fromByteCount: Int64(contentSize))
+    }
 }
