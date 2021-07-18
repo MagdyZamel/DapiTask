@@ -9,3 +9,9 @@
 "error.noInternet" = "Your mobile seems to be offline...";
 "error.faviconDownloader.failedDownload" = "Could not download favicon from the given url: %@";
 "error.faviconDownloader.urlNotValid" = "Could not download favicon from not valid url: %@";
+
+// MARK: - WebsitesList Screen
+"websitesList.startButton.title" = "Start";
+"websitesList.statsCode" = "Status Code";
+"websitesList.contentHeader" = "Contents";
+"websitesList.sitesTitle" = "Sites";
